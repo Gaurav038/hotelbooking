@@ -4,6 +4,7 @@ import "./navbar.css"
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import ProfileOpt from "./ProfileOpt";
 
 const Navbar = () => {
 
@@ -20,7 +21,7 @@ const Navbar = () => {
           </Link>   
         </span>
         {
-        user ? user.username 
+        user ? <ProfileOpt /> 
         : <div className="navItems">
             <button className="navButton">Register</button>
             <button className="navButton">Login</button>

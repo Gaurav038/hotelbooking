@@ -1,0 +1,19 @@
+.profile{
+    margin-left: 2rem;
+    margin-top: 2rem;
+    
+}
+
+.ant-tabs-tab{
+    color: black !important;
+    font-weight: 300;
+}
+
+.ant-tabs-tab-active div{
+    color: black !important;
+    font-weight: 600;
+}
+
+.profile p{
+    font-size: 1.3rem;
+}

@@ -61,7 +61,7 @@ const Hotel = () => {
     return diffDays;
   }
 
-  const days = dates ? dayDifference(dates[0].endDate, dates[0].startDate) : 1
+  const days = dates && dayDifference(dates[0].endDate, dates[0].startDate)+1
 
   const handleOpen = (i) => {
     setSlideNumber(i);
@@ -69,6 +69,7 @@ const Hotel = () => {
   };
 
   const getDatesInRange = (startDate, endDate) => {
+
     const start = new Date(startDate);
     const end = new Date(endDate);
 

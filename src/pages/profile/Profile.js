@@ -4,6 +4,7 @@ import { Tag } from "antd";
 import Navbar from '../../components/navbar/Navbar';
 import "./profile.css"
 import { AuthContext } from '../../context/AuthContext';
+import MyBooking from './MyBooking';
 
 const { TabPane } = Tabs;
 
@@ -25,13 +26,12 @@ function Profile() {
       <div className="profile">
         <Tabs defaultActiveKey="1">
           <TabPane tab="My Profile" key="1">
-            <div className="row">
-              <div className="col-xs-12 ml-5 mb-5">
-                <div className="bs">
-                  <p>Name : {user.username}</p>
-                  <p>Email : {user.email}</p>
-                  <p>
-                    IsAdmin :{" "}
+            <div className="Profilerow">
+              <div>
+                <div>
+                  <p> <b>Name</b> : {user.username}</p>
+                  <p> <b>Email</b> : {user.email}</p>
+                  <p> <b>IsAdmin</b> :{" "}
                     {user.isAdmin ? (
                       <Tag color="green">YES</Tag>
                     ) : (
@@ -43,7 +43,7 @@ function Profile() {
             </div>
           </TabPane>
           <TabPane tab="Booking" key="2">
-            <div>okkkkkkkkkkkkkkkkkk</div>
+            <MyBooking />
           </TabPane>
         </Tabs>
       </div>

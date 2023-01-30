@@ -35,9 +35,9 @@ function MyBooking() {
     fetchMyAPI();
   }, []);
   
+
   const getDatesInRange = (startDate, endDate) => {
    
-    
     const start = new Date(startDate);
     const end = new Date(endDate);
 
@@ -59,9 +59,9 @@ function MyBooking() {
 
     const dateslist = getDatesInRange(startdate, enddate)
     try {
-      const data = (await axios.post("/booking/cancelbooking", {
+      await axios.post("/booking/cancelbooking", {
         bookingid, roomid, dateslist
-      })).data;
+      });
       setLoading(false)
 
       Swal.fire(
@@ -90,8 +90,8 @@ function MyBooking() {
                         <div className="detailsBox" key={booking._id} >
                             <h1>{booking.room}</h1>
                             <p> <b>BookingId:</b> {booking._id} </p>
-                            <p> <b>CheckIn:</b> {booking.fromdate} </p>
-                            <p> <b>CheckOut:</b> {booking.todate} </p>
+                            <p> <b>CheckIn:</b> {moment(booking.fromdate).format('DD-MM-YYYY')} </p>
+                            <p> <b>CheckOut:</b> {moment(booking.todate).format('DD-MM-YYYY')} </p>
                             <p> <b>Amount:</b> {booking.totalamount} </p>
                             <p> <b>Status:</b>{" "}
                                 {booking.status === "booked" ? (

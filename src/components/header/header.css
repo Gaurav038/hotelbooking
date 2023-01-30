@@ -6,14 +6,20 @@
     position: relative;
   }
   
+  .searchBox{
+    display: flex;
+    justify-content: center;
+  }
+
   .headerContainer {
     width: 100%;
-    max-width: 1024px;
+    max-width: 1180px;
     margin: 20px 0px 100px 0px;
   }
   
   .headerContainer.listMode {
     margin: 20px 0px 0px 0px;
+    display: none;
   }
   
   .headerDesc {
@@ -30,18 +36,17 @@
   }
   
   .headerSearch {
-    height: 30px;
+    height: 40px;
     background-color: white;
-    border: 3px solid #febb02;
+    border: 3px solid #8e8caa;
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 10px 0px;
     border-radius: 5px;
     position: absolute;
-    bottom: -25px;
+    max-width: 1158px;
     width: 100%;
-    max-width: 1024px;
   }
   
   .headerIcon {
@@ -107,4 +112,61 @@
   
   .optionCounterButton:disabled {
     cursor: not-allowed;
+  }
+
+
+
+  /* ----------------------------------------------- */
+
+  .homeHead{
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+
+  .homeHead .overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgb(47, 106, 107);
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    mix-blend-mode: hard-light;
+  }
+
+  .homeHead video{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    object-fit: cover;
+  }
+
+  .homeHead .homeContent{
+    width: 100%;
+    height: max-content;
+    padding: 8rem 1rem 3rem;
+    display: flex;
+    row-gap: 3rem;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    margin: auto;
+    z-index: 10;
+  }
+
+  .homeHead .textDiv{
+    padding: 1.5rem 0;
+  }
+
+  .homeHead .smallText{
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+  .homeHead .homeTitle{
+    position: relative;
+    font-size: 3rem;
   }

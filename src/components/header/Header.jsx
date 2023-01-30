@@ -12,6 +12,7 @@ import {
   import { format } from "date-fns";
   import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
+import HomeHead from "./HomeHead";
   
   const Header = ({ type }) => {
     const [destination, setDestination] = useState("");
@@ -50,7 +51,7 @@ import { SearchContext } from "../../context/SearchContext";
 
     return (
       <div className="header">
-        <div
+        <div style={{maxWidth: '1290px', height: '39rem'}}
           className={
             type === "list" ? "headerContainer listMode" : "headerContainer"
           }
@@ -58,13 +59,8 @@ import { SearchContext } from "../../context/SearchContext";
          
           {type !== "list" && (
             <>
-              <h1 className="headerTitle">
-                A lifetime of discounts? It's Genius.
-              </h1>
-              <p className="headerDesc">
-                Get rewarded for your travels – unlock instant savings of 10% or
-                more with a free Lamabooking account
-              </p>
+              <HomeHead />
+            <div className="searchBox">
               <div className="headerSearch">
                 <div className="headerSearchItem">
                   <FontAwesomeIcon icon={faBed} className="headerIcon" />
@@ -175,6 +171,7 @@ import { SearchContext } from "../../context/SearchContext";
                   </button>
                 </div>
               </div>
+            </div>
             </>
           )}
         </div>

@@ -16,7 +16,7 @@ import useFetch from "../../hooks/useFetch";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import StripeCheckout from 'react-stripe-checkout';
-import axios from "axios";
+import axios, { all } from "axios";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 import Error from "../../components/Error";
@@ -30,7 +30,6 @@ const Hotel = () => {
   const id = location.pathname.split("/")[2];
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
-
   const [hotel, setHotel] = useState()
   const navigate = useNavigate()
   const {dates, options} = useContext(SearchContext)
@@ -123,9 +122,9 @@ const Hotel = () => {
           try {
             setLoading(true);
 
-            const result = await axios.post("/booking/createBooking", bookingDetails);
+            await axios.post("/booking/createBooking", bookingDetails);
             
-            const res = await axios.put(`/hotels/availability/${id}`, {dates: allDates})
+            await axios.put(`/hotels/availability/${id}`, {dates: allDates})
             setLoading(false);
             Swal.fire(
               "Congratulations",

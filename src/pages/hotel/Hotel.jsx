@@ -131,7 +131,7 @@ const Hotel = () => {
               "Your Room Booked Successfully",
               "success"
             ).then((result) => {
-              window.location.href = "/";
+              window.location.href = "/profile";
             });
           } catch (error) {
             setError(error);
@@ -173,7 +173,6 @@ const Hotel = () => {
             </div>
           )}
           <div className="hotelWrapper">
-            <button className="bookNow">Reserve or Book Now!</button>
             <h1 className="hotelTitle">{hotel.name}</h1>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
@@ -181,6 +180,9 @@ const Hotel = () => {
             </div>
             <span className="hotelDistance">
               Excellent location – {hotel.distance}m from center
+            </span>
+            <span className="hotelDistance">
+              Maximum Person  –  {hotel.maxPeople} 
             </span>
             <span className="hotelPriceHighlight">
               Book a stay over ${hotel.cheapestPrice} at this property and get a free airport taxi
@@ -211,7 +213,7 @@ const Hotel = () => {
                   excellent location score of 9.8!
                 </span>
                 <h2>
-                  <b>${days * hotel.cheapestPrice * options.room}</b> ({days} nights)
+                  <b>${days * hotel.cheapestPrice}</b> ({days} nights)
                 </h2>
                
                 

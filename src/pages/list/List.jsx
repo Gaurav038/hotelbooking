@@ -18,10 +18,14 @@ const List = () => {
   const [options, setOptions] = useState(location.state.options);
   const [min, setMin] = useState(undefined)
   const [max, setMax] = useState(undefined)
-  const {data, loading, error, reFetch} = useFetch(`/hotels?city=${destination}&min=${min || 0}&max=${max || 12000}`)
   const {dispatch} = useContext(SearchContext)
 
+ 
+  const {data, loading, error, reFetch} =  useFetch(`/hotels?city=${destination}&min=${min || 0}&max=${max || 12000}&people=${options.adult || 0}`)
+  
+
   const handleSearch = () => {
+    dispatch({type: "NEW_SEARCH", payload: { destination, date, options }})
     reFetch()
   }
 
@@ -40,7 +44,7 @@ const List = () => {
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Destination</label>
-              <input placeholder={destination} type="text" />
+              <input placeholder={destination} onChange = {e => setDestination(e.target.value)} type="text" />
             </div>
             <div className="lsItem">
               <label>Check-in Date</label>
@@ -76,31 +80,14 @@ const List = () => {
                   <input
                     type="number"
                     min={1}
+                     onChange={e=>setOptions({adult: e.target.value})}
                     className="lsOptionInput"
                     placeholder={options.adult}
                   />
                 </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">Children</span>
-                  <input
-                    type="number"
-                    min={0}
-                    className="lsOptionInput"
-                    placeholder={options.children}
-                  />
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">Room</span>
-                  <input
-                    type="number"
-                    min={1}
-                    className="lsOptionInput"
-                    placeholder={options.room}
-                  />
-                </div>
               </div>
             </div>
-            <button onClick={handleSearch} >Search</button>
+            <button onClick={handleSearch} style={{fontWeight: 600}} >Search</button>
           </div>
           <div className="listResult">
             {loading ? "loading" : 

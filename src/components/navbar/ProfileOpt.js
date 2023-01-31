@@ -2,41 +2,46 @@ import React, { useState } from 'react'
 import user from "../../images/user.png";
 import prof from "../../images/profile.png";
 import logout from "../../images/logout.png";
-import { Link } from 'react-router-dom';
+import { Link,  useNavigate } from 'react-router-dom';
 import "./profileOpt.css"
 
-function ProfileOpt() {
-
+function ProfileOpt({userDetail}) {
+  const navigate = useNavigate();
   const [isActive, setActive] = useState("false");
 
   const handleToggle = () => {
     setActive(!isActive);
   };
 
+  const logOutFunct = () => {
+    localStorage.removeItem('user');
+    navigate("/login")
+  }
+
   return (
     <div >
-            <img src={user} className="user-pic" onClick={handleToggle} />
+            <img src={userDetail.img ? userDetail.img : prof} className="user-pic" onClick={handleToggle} />
 
             <div className={isActive ? 'sub-menu-wrap' : 'sub-menu-wrap open-menu'}>
 
                 <div className='sub-menu'>
                     <div className='user-info'>
-                        <img src={user}/>
-                        <h2>Gaurav</h2>
+                        <img src={userDetail.img ? userDetail.img : prof}/>
+                        <h2>{userDetail.username}</h2>
                     </div>
                     <hr />
 
                     <Link to="/profile" className='sub-menu-link'>
                         <img src={prof}/>
-                        <p>Edit Profile</p>
+                        <p>Booking Details</p>
                         <span> {'>'} </span>
                     </Link>
 
-                    <Link to="/logout" className='sub-menu-link'>
+                    <div onClick={logOutFunct} className='sub-menu-link'>
                         <img src={logout}/>
                         <p>Logout</p>
                         <span> {'>'} </span>
-                    </Link>
+                    </div>
                 </div>
             </div>
     </div>

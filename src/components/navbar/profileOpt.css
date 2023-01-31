@@ -23,8 +23,9 @@
 
 .sub-menu{
     background-color: #fff;
-    padding: 20px;
-    margin: 10px;
+    padding: 5px;
+    margin: 2px;
+    border-radius: 5%;
 }
 
 .user-info{
@@ -56,10 +57,11 @@
     text-decoration: none;
     color: #525252;
     margin: 4px 0;
+    cursor: pointer;
 }
 
 .sub-menu-link p{
-    width: 100%;
+    width: 58%;
 }
 
 .sub-menu-link img{

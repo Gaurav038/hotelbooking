@@ -5,8 +5,6 @@ const INITIAL_STATE = {
     dates: [],
     options:{
         adult: undefined,
-        children: undefined,
-        room: undefined 
     }
 }
 

@@ -13,7 +13,7 @@ function HomeHead() {
         <div className='homeContent container'>
             <div className='textDiv' >
                 <h1 className="homeTitle">
-                    Search Your Hotels.
+                    Search Your Hotels...
                 </h1>
                 <span className="smallText">
                     Our packages 

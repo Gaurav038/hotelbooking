@@ -11,10 +11,10 @@ const SearchItem = ({item}) => {
       />
       <div className="siDesc">
         <h1 className="siTitle">{item.name}, {item.city}</h1>
-        <span className="siDistance">{item.distance} from center</span>
+        <span className="siDistance">{item.distance}m from center <b>{item.city}</b> </span>
         <span className="siTaxiOp">Free airport taxi</span>
         <span className="siSubtitle">
-          Studio Apartment with Air conditioning
+          Maximum People : {item.maxPeople}
         </span>
         <span className="siFeatures">
             {item.desc}
@@ -25,10 +25,6 @@ const SearchItem = ({item}) => {
         </span>
       </div>
       <div className="siDetails">
-        {item.rating && <div className="siRating">
-          <span>Excellent</span>
-          <button>{item.rating}</button>
-        </div>}
         <div className="siDetailTexts">
           <span className="siPrice">${item.cheapestPrice}</span>
           <span className="siTaxOp">Includes taxes and fees</span>

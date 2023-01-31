@@ -12,7 +12,6 @@ function Profile() {
 
   const {user} = useContext(AuthContext)
 
-  console.log(user)
   useEffect(() => {
     if (!user) {
       window.location.href = "/login";
@@ -31,6 +30,8 @@ function Profile() {
                 <div>
                   <p> <b>Name</b> : {user.username}</p>
                   <p> <b>Email</b> : {user.email}</p>
+                  <p> <b>city</b> : {user.city}</p>
+                  <p> <b>Phone</b> : {user.phone}</p>
                   <p> <b>IsAdmin</b> :{" "}
                     {user.isAdmin ? (
                       <Tag color="green">YES</Tag>

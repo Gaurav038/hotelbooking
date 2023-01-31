@@ -9,22 +9,23 @@ import ProfileOpt from "./ProfileOpt";
 const Navbar = () => {
 
   const {user} = useContext(AuthContext)
+
   return (
     <div className="navbar">
       <div className="navContainer">
         <span className="logo">
           <Link to="/" style={{color: "inherit", textDecoration: "none"}} >
             <div className="headerListItem active">
-              <FontAwesomeIcon icon={faBed} />
-              <span>lamabooking</span>
+              <FontAwesomeIcon icon={faBed} /> {" "}
+              <span>Your Hotel</span>
             </div>
           </Link>   
         </span>
         {
-        user ? <ProfileOpt /> 
+        user ? <ProfileOpt userDetail = {user} /> 
         : <div className="navItems">
-            <button className="navButton">Register</button>
-            <button className="navButton">Login</button>
+            <Link to = "/"><button className="navButton">Register</button></Link>
+            <Link to = "/login"><button className="navButton">Login</button></Link>
           </div>
         }
       </div>

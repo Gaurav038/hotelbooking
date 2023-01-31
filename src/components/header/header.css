@@ -29,10 +29,12 @@
   .headerBtn {
     background-color: #0071c2;
     color: white;
-    font-weight: 500;
+    font-weight: 900;
+    font-size: 16px;
     border: none;
     padding: 10px;
     cursor: pointer;
+    width: 130px;
   }
   
   .headerSearch {
@@ -59,13 +61,20 @@
     gap: 10px;
   }
   
+  .headerSearchItem svg{
+    font-size: 2.4rem;
+    color: #8888d3;
+  }
   .headerSearchInput {
     border: none;
     outline: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: #70706a;
   }
   
   .headerSearchText {
-    color: lightgray;
+    color: #ba8f8f;
     cursor: pointer;
   }
   

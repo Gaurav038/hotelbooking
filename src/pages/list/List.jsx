@@ -6,9 +6,12 @@ import { useEffect, useState } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem.jsx";
-import useFetch from "../../hooks/useFetch";
 import { useContext } from "react";
 import { SearchContext } from "../../context/SearchContext";
+import Loader from "../../components/Loader";
+import Error from "../../components/Error";
+import axios from "axios";
+
 
 const List = () => {
   const location = useLocation();
@@ -16,18 +19,34 @@ const List = () => {
   const [date, setDate] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
   const [options, setOptions] = useState(location.state.options);
+  const [type, setType] = useState(location.state.type && location.state.type);
   const [min, setMin] = useState(undefined)
   const [max, setMax] = useState(undefined)
   const {dispatch} = useContext(SearchContext)
+  const [data, setData] = useState()
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
- 
-  const {data, loading, error, reFetch} =  useFetch(`/hotels?city=${destination}&min=${min || 0}&max=${max || 12000}&people=${options.adult || 0}`)
-  
+  useEffect(() => {
 
-  const handleSearch = () => {
+    async function fetchMyAPI() {
+      try {
+        setError("");
+        setLoading(true);
+        const res = await axios.get(`/hotels?city=${destination}&min=${min || 0}&max=${max || 12000}&people=${options.adult || 0}&type=${type || ''}`)
+        setData(res.data);
+      } catch (error) {
+        setError(error);
+      }
+      setLoading(false);
+    }
+
+    fetchMyAPI();
+    
     dispatch({type: "NEW_SEARCH", payload: { destination, date, options }})
-    reFetch()
-  }
+    
+  }, [destination, min, max, options, type])
+
 
   useEffect(() => {
     dispatch({type: "NEW_SEARCH", payload: { destination, date, options }})
@@ -87,15 +106,19 @@ const List = () => {
                 </div>
               </div>
             </div>
-            <button onClick={handleSearch} style={{fontWeight: 600}} >Search</button>
+            <button style={{fontWeight: 600}} >Search</button>
           </div>
           <div className="listResult">
-            {loading ? "loading" : 
-            <>
-            {data.map(item => (
-              <SearchItem item={item} key={item._id} />
-            ))}
-            </>
+            {
+              loading 
+              ? <Loader /> 
+              : error.length > 0 
+                  ? ( <Error msg={error}></Error>) 
+                  : <>
+                      {data.map(item => (
+                        <SearchItem item={item} key={item._id} />
+                      ))}
+                    </>
             }
           </div>
         </div>

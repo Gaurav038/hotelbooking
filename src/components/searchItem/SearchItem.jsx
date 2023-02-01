@@ -12,7 +12,7 @@ const SearchItem = ({item}) => {
       <div className="siDesc">
         <h1 className="siTitle">{item.name}, {item.city}</h1>
         <span className="siDistance">{item.distance}m from center <b>{item.city}</b> </span>
-        <span className="siTaxiOp">Free airport taxi</span>
+        <span className="siTaxiOp">Type : {item.type}</span>
         <span className="siSubtitle">
           Maximum People : {item.maxPeople}
         </span>

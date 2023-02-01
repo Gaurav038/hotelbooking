@@ -2,7 +2,8 @@
     width: 100%;
     max-width: 1180px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
     z-index: 1;
   }
@@ -13,7 +14,8 @@
     border-radius: 10px;
     overflow: hidden;
     height: 250px;
-    flex:1
+    flex:1;
+    cursor: pointer;
   }
   
   .featuredImg{

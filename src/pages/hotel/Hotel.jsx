@@ -35,6 +35,7 @@ const Hotel = () => {
   const {dates, options} = useContext(SearchContext)
   const {user} = useContext(AuthContext)
 
+
   useEffect(() => {
 
     async function fetchMyAPI() {
@@ -60,7 +61,7 @@ const Hotel = () => {
     return diffDays;
   }
 
-  const days = dates && dayDifference(dates[0].endDate, dates[0].startDate)+1
+  const days = dates ? dayDifference(dates[0].endDate, dates[0].startDate)+1 : 0
 
   const handleOpen = (i) => {
     setSlideNumber(i);
@@ -85,7 +86,10 @@ const Hotel = () => {
   };
 
   const isAvailable = (roomNumber) => {
-    const allDates = getDatesInRange(dates[0].startDate, dates[0].endDate);
+    var allDates = []
+    if(dates){
+      allDates = getDatesInRange(dates[0].startDate, dates[0].endDate);
+    }
     const isFound = roomNumber && roomNumber.some((date) => 
       allDates.includes(new Date(date).getTime())
     )

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PropagateLoader from "react-spinners/PacmanLoader";
+import FadeLoader from "react-spinners/FadeLoader";
 
 function Loader() {
   let [loading, setLoading] = useState(true);
@@ -7,7 +7,7 @@ function Loader() {
   return (
     <div style={{ marginTop: "150px" }}>
       <div style={{display : 'flex', justifyContent: 'center'}}>
-        <PropagateLoader color="#000" loading={loading} css="" size={25} />
+        <FadeLoader color="#000" loading={loading} css="" size={25} />
       </div>
     </div>
   );

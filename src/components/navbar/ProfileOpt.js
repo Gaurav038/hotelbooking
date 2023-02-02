@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import user from "../../images/user.png";
-import prof from "../../images/profile.png";
+import prof from "../../images/user.png";
 import logout from "../../images/logout.png";
 import { Link,  useNavigate } from 'react-router-dom';
 import "./profileOpt.css"

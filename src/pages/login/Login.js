@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useContext, useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./login.css"
+
 
 const Login = () => {
     const [credentials, setCredentials] = useState({
@@ -30,28 +31,45 @@ const Login = () => {
     }
 
     return (
-        <div className="login">
-          <div className="lContainer">
-            <input
-              type="text"
-              placeholder="username"
+    <div className="login_container">
+			<div className="login_form_container">
+				<div className="left">
+					<form className="form_container" onSubmit={handleClick}>
+						<h1>Login to Your Account</h1>
+						<input
+							type="name"
+							placeholder="Name"
               id="username"
               onChange={handleChange}
-              className="lInput"
-            />
-            <input
-              type="password"
-              placeholder="password"
-              id="password"
-              onChange={handleChange}
-              className="lInput"
-            />
-            <button disabled={loading} onClick={handleClick} className="lButton">
-              Login
-            </button>
-            {error && <span>{error.message}</span>}
-          </div>
-        </div>
+							required
+							className="input"
+						/>
+						<input
+							type="password"
+							placeholder="Password"
+							id="password"
+							onChange={handleChange}
+							required
+							className="input"
+						/>
+						{error && <div className="error_msg">{error.message}</div>}
+						<button type="submit" className="green_btn">
+							LogIn
+						</button>
+					</form>
+				</div>
+				<div className="right">
+					<h1>New Here ?</h1>
+					<Link to="/signup">
+						<button type="button" className="white_btn">
+							Sign Up
+						</button>
+					</Link>
+				</div>
+			</div>
+		</div>
+
+
     );
 }
 

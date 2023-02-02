@@ -24,7 +24,7 @@ const Navbar = () => {
         {
         user ? <ProfileOpt userDetail = {user} /> 
         : <div className="navItems">
-            <Link to = "/"><button className="navButton">Register</button></Link>
+            <Link to = "/signUp"><button className="navButton">Register</button></Link>
             <Link to = "/login"><button className="navButton">Login</button></Link>
           </div>
         }

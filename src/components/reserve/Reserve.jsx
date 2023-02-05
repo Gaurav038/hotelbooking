@@ -5,12 +5,13 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import useFetch from "../../hooks/useFetch"
 import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
+import url from "../../API.js"
 
 
 function Reserve({setOpen, hotelId}) {
 
     const [selectedRooms, setSelectedRooms] = useState([])
-    const {data, loading, error} = useFetch(`/hotels/room/${hotelId}`)
+    const {data, loading, error} = useFetch(`${url}/hotels/room/${hotelId}`)
     const {dates} = useContext(SearchContext)
 
     const getDatesInRange = (startDate, endDate) => {

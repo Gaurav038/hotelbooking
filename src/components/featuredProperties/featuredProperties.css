@@ -26,12 +26,9 @@
     font-weight: bold;
   }
   
-  .fpCity{
-    font-weight: 300;
-  }
-  
   .fpPrice{
     font-weight: 500;
+    color: black;
   }
   
   .fpRating>button{

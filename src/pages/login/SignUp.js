@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./signUp.css";
+import {BASE_URL} from "../../API.js"
 
 const Signup = () => {
 	const [data, setData] = useState({
@@ -25,7 +26,7 @@ const Signup = () => {
         setisSubmit(true)
         if(Object.keys(formError).length === 0 && isSubmit){
             try {
-                const url = "/auth/register";
+                const url = `${BASE_URL}/auth/register`;
                 const res = await axios.post(url, data);
                 navigate("/login");
                 console.log(res);

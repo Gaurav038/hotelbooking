@@ -7,6 +7,7 @@ import { Tag } from "antd";
 import "./MyBooking.css"
 import Swal from "sweetalert2";
 import moment from "moment"
+import {BASE_URL} from "../../API.js"
 
 function MyBooking() {
 
@@ -20,7 +21,7 @@ function MyBooking() {
     setError("");
     setLoading(true);
     try {
-      const data = (await axios.post("/booking/getbookingbyuserid", {
+      const data = (await axios.post(`${BASE_URL}/booking/getbookingbyuserid`, {
                       userid: user._id,
                     })).data;
       setBookings(data);
@@ -59,7 +60,7 @@ function MyBooking() {
 
     const dateslist = getDatesInRange(startdate, enddate)
     try {
-      await axios.post("/booking/cancelbooking", {
+      await axios.post(`${BASE_URL}/booking/cancelbooking`, {
         bookingid, roomid, dateslist
       });
       setLoading(false)

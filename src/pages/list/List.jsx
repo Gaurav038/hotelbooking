@@ -11,6 +11,7 @@ import { SearchContext } from "../../context/SearchContext";
 import Loader from "../../components/Loader";
 import Error from "../../components/Error";
 import axios from "axios";
+import {BASE_URL} from "../../API.js"
 
 
 const List = () => {
@@ -33,7 +34,7 @@ const List = () => {
       try {
         setError("");
         setLoading(true);
-        const res = await axios.get(`/hotels?city=${destination}&min=${min || 0}&max=${max || 12000}&people=${options.adult || 0}&type=${type || ''}`)
+        const res = await axios.get(`${BASE_URL}/hotels?city=${destination}&min=${min || 0}&max=${max || 12000}&people=${options.adult || 0}&type=${type || ''}`)
         setData(res.data);
       } catch (error) {
         setError(error);

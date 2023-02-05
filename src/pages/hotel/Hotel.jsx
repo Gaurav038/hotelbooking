@@ -12,7 +12,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import StripeCheckout from 'react-stripe-checkout';
@@ -21,6 +20,8 @@ import Swal from "sweetalert2";
 import { useEffect } from "react";
 import Error from "../../components/Error";
 import Loader from "../../components/Loader";
+import {BASE_URL} from "../../API.js"
+
 
 const Hotel = () => {
 
@@ -42,7 +43,7 @@ const Hotel = () => {
       try {
         setError("");
         setLoading(true);
-        const res = await axios.get(`/hotels/find/${id}`)
+        const res = await axios.get(`${BASE_URL}/hotels/find/${id}`)
         setHotel(res.data);
       } catch (error) {
         setError(error);
@@ -126,16 +127,16 @@ const Hotel = () => {
           try {
             setLoading(true);
 
-            await axios.post("/booking/createBooking", bookingDetails);
+            await axios.post(`${BASE_URL}/booking/createBooking`, bookingDetails);
             
-            await axios.put(`/hotels/availability/${id}`, {dates: allDates})
+            await axios.put(`${BASE_URL}/hotels/availability/${id}`, {dates: allDates})
             setLoading(false);
             Swal.fire(
               "Congratulations",
               "Your Room Booked Successfully",
               "success"
             ).then((result) => {
-              window.location.href = "/profile";
+              navigate("/profile");
             });
           } catch (error) {
             setError(error);

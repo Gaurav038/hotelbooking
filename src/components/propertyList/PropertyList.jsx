@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Error from "../Error";
 import axios from "axios";
 import Loader from "../Loader";
+import {BASE_URL} from "../../API.js"
 
 
 const PropertyList = () => {
@@ -29,7 +30,7 @@ const PropertyList = () => {
       try {
         setError("");
         setLoading(true);
-        const res = await axios.get("/hotels/countByType")
+        const res = await axios.get(`${BASE_URL}/hotels/countByType`)
         setData(res.data);
       } catch (error) {
         setError(error.message);

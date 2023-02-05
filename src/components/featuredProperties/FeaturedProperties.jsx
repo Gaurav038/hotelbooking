@@ -4,6 +4,7 @@ import Error from "../Error";
 import axios from "axios";
 import Loader from "../Loader";
 import "./featuredProperties.css";
+import {BASE_URL} from "../../API.js"
 
 const FeaturedProperties = () => {
 
@@ -17,7 +18,7 @@ const FeaturedProperties = () => {
       try {
         setError("");
         setLoading(true);
-        const res = await axios.get("/hotels?featured=true&min=100&max=5000&limit=4&people=1")
+        const res = await axios.get(`${BASE_URL}/hotels?featured=true&min=100&max=5000&limit=4&people=1`)
         setData(res.data);
       } catch (error) {
         setError(error.message);
@@ -41,13 +42,9 @@ const FeaturedProperties = () => {
                       alt=""
                       className="fpImg"
                     />
-                    <span className="fpName">{item.name}</span>
-                    <span className="fpCity">{item.city}</span>
+                    <span className="fpName">{item.name}, {item.city}</span>
                     <span className="fpPrice">Starting from $ {item.cheapestPrice}</span>
-                    {item.rating && <div className="fpRating">
-                      <button>{item.rating}</button>
-                      <span>Excellent</span>
-                    </div>}
+                   
                   </Link> 
                 ))}
               </>

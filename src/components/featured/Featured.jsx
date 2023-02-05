@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Error from "../Error";
 import axios from "axios";
 import Loader from "../Loader";
-
+import {BASE_URL} from "../../API.js"
 
 const Featured = () => {
 
@@ -30,7 +30,7 @@ const Featured = () => {
       try {
         setError("");
         setLoading(true);
-        const res = await axios.get("/hotels/countByCity?cities=delhi,mumbai,pune")
+        const res = await axios.get(`${BASE_URL}/hotels/countByCity?cities=delhi,mumbai,pune`)
         setData(res.data);
       } catch (error) {
         setError(error.message);

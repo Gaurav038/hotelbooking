@@ -102,10 +102,10 @@
   .hotelDetailsPrice > button {
     border: none;
     padding: 10px 20px;
-    background-color: #0071c2;
+    background-color: #c17e66;
     color: white;
     font-weight: bold;
-    cursor: pointer;
+    cursor: not-allowed;
     border-radius: 5px;
   }
   

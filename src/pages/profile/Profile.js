@@ -22,33 +22,34 @@ function Profile() {
     <div>
 
       <Navbar />
-      <div className="profile">
-        <Tabs defaultActiveKey="1">
-          <TabPane tab="My Profile" key="1">
-            <div className="Profilerow">
-              <div>
+      <div className='profile-box'>
+        <div className="profile">
+          <Tabs defaultActiveKey="1">
+            <TabPane tab="My Profile" key="1">
+              <div className="Profilerow">
                 <div>
-                  <p> <b>Name</b> : {user.username}</p>
-                  <p> <b>Email</b> : {user.email}</p>
-                  <p> <b>city</b> : {user.city}</p>
-                  <p> <b>Phone</b> : {user.phone}</p>
-                  <p> <b>IsAdmin</b> :{" "}
-                    {user.isAdmin ? (
-                      <Tag color="green">YES</Tag>
-                    ) : (
-                      <Tag color="red">NO</Tag>
-                    )}
-                  </p>
+                  <div>
+                    <p> <b>Name</b> : {user.username}</p>
+                    <p> <b>Email</b> : {user.email}</p>
+                    <p> <b>city</b> : {user.city}</p>
+                    <p> <b>Phone</b> : {user.phone}</p>
+                    <p> <b>IsAdmin</b> :{" "}
+                      {user.isAdmin ? (
+                        <Tag color="green">YES</Tag>
+                      ) : (
+                        <Tag color="red">NO</Tag>
+                      )}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </TabPane>
-          <TabPane tab="Booking" key="2">
-            <MyBooking />
-          </TabPane>
-        </Tabs>
+            </TabPane>
+            <TabPane tab="Booking" key="2">
+              <MyBooking />
+            </TabPane>
+          </Tabs>
+        </div>
       </div>
-
     </div>
   )
 }

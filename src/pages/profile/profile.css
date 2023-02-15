@@ -1,14 +1,22 @@
+
+.profile-box{
+    display: flex;
+    justify-content: center;
+}
+
 .profile{
-    margin-left: 2rem;
     margin-top: 2rem;
-    
+    width: 1180px;
 }
 
 .ant-tabs-tab{
     color: black !important;
     font-weight: 300;
 }
-
+.ant-tabs-tab-btn {
+    font-size: 22px;
+    font-weight: 900;
+}
 .ant-tabs-tab-active div{
     color: black !important;
     font-weight: 600;

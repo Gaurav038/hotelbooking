@@ -116,7 +116,7 @@ const List = () => {
               : error.length > 0 
                   ? ( <Error msg={error}></Error>) 
                   : <>
-                      {data.map(item => (
+                      {data && data.map(item => (
                         <SearchItem item={item} key={item._id} />
                       ))}
                     </>

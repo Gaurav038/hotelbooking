@@ -48,8 +48,6 @@ const Featured = () => {
  }
     
   
-
-
   return (
     <div className="featured">
       {loading 
@@ -59,7 +57,7 @@ const Featured = () => {
             :<>
               <div className="featuredItem" onClick={()=>handleSearch('delhi')} >
                 <img
-                  src="https://cf.bstatic.com/xdata/images/city/max500/957801.webp?k=a969e39bcd40cdcc21786ba92826063e3cb09bf307bcfeac2aa392b838e9b7a5&o="
+                  src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
                   alt=""
                   className="featuredImg"
                 />
@@ -82,7 +80,7 @@ const Featured = () => {
               </div>
               <div className="featuredItem" onClick={()=>handleSearch('pune')}>
                 <img
-                  src="https://cf.bstatic.com/xdata/images/city/max500/689422.webp?k=2595c93e7e067b9ba95f90713f80ba6e5fa88a66e6e55600bd27a5128808fdf2&o="
+                  src="https://images.unsplash.com/photo-1553064483-f10fe837615f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
                   alt=""
                   className="featuredImg"
                 />

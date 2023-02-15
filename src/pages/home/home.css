@@ -8,5 +8,8 @@
   
   .homeTitle{
     width: 1024px;
-    font-size: 20px;
+    font-size: 30px;
+    font-family: cursive;
+    font-weight: 900;
+    margin: 0;
   }

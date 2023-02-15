@@ -18,7 +18,7 @@ const FeaturedProperties = () => {
       try {
         setError("");
         setLoading(true);
-        const res = await axios.get(`${BASE_URL}/hotels?featured=true&min=100&max=5000&limit=4&people=1`)
+        const res = await axios.get(`${BASE_URL}/hotels/favtHotel`)
         setData(res.data);
       } catch (error) {
         setError(error.message);
@@ -30,25 +30,27 @@ const FeaturedProperties = () => {
   }, [])
 
   return (
-    <div className="fp">
-      {loading  ? <Loader /> 
-          : error.length > 0 
-            ? ( <Error msg={error}></Error>) 
-            :<>
-                {data.length && data.map((item) => (
-                  <Link to={`/hotels/${item._id}`} className="fpItem" key={item._id}>
-                    <img
-                      src={item.photos[0]}
-                      alt=""
-                      className="fpImg"
-                    />
-                    <span className="fpName">{item.name}, {item.city}</span>
-                    <span className="fpPrice">Starting from $ {item.cheapestPrice}</span>
-                   
-                  </Link> 
-                ))}
-              </>
-      }
+    <div className="feature-box">
+      <div className="fp">
+        {loading  ? <Loader /> 
+            : error.length > 0 
+              ? ( <Error msg={error}></Error>) 
+              :<>
+                  {data.length && data.map((item) => (
+                    <Link to={`/hotels/${item._id}`} className="fpItem" key={item._id}>
+                      <img
+                        src={item.photos[0]}
+                        alt=""
+                        className="fpImg"
+                      />
+                      <span className="fpName">{item.name}, {item.city}</span>
+                      <span className="fpPrice">Starting from $ {item.cheapestPrice}</span>
+                    
+                    </Link> 
+                  ))}
+                </>
+        }
+      </div>
     </div>
   );
 };

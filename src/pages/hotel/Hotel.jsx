@@ -5,9 +5,6 @@ import MailList from "../../components/mailList/MailList";
 import Footer from "../../components/footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCircleArrowLeft,
-  faCircleArrowRight,
-  faCircleXmark,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useState } from "react";
@@ -15,12 +12,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import StripeCheckout from 'react-stripe-checkout';
-import axios, { all } from "axios";
+import axios from "axios";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 import Error from "../../components/Error";
 import Loader from "../../components/Loader";
 import {BASE_URL} from "../../API.js"
+import ImageSlider from "./ImagesSlider";
 
 
 const Hotel = () => {
@@ -29,8 +27,6 @@ const Hotel = () => {
   const [error, setError] = useState("");
   const location = useLocation()
   const id = location.pathname.split("/")[2];
-  const [slideNumber, setSlideNumber] = useState(0);
-  const [open, setOpen] = useState(false);
   const [hotel, setHotel] = useState()
   const navigate = useNavigate()
   const {dates, options} = useContext(SearchContext)
@@ -64,11 +60,6 @@ const Hotel = () => {
 
   const days = dates ? dayDifference(dates[0].endDate, dates[0].startDate)+1 : 0
 
-  const handleOpen = (i) => {
-    setSlideNumber(i);
-    setOpen(true);
-  };
-
   const getDatesInRange = (startDate, endDate) => {
 
     const start = new Date(startDate);
@@ -97,19 +88,6 @@ const Hotel = () => {
 
     return !isFound
   }
-
-
-  const handleMove = (direction) => {
-    let newSlideNumber;
-
-    if (direction === "l") {
-      newSlideNumber = slideNumber === 0 ? 5 : slideNumber - 1;
-    } else {
-      newSlideNumber = slideNumber === 5 ? 0 : slideNumber + 1;
-    }
-
-    setSlideNumber(newSlideNumber)
-  };
 
   const onToken = async(token) => {
     const allDates = getDatesInRange(dates[0].startDate, dates[0].endDate);
@@ -145,6 +123,7 @@ const Hotel = () => {
           setLoading(false);
   }
 
+
   return (
     <div>
       <Navbar />
@@ -155,28 +134,7 @@ const Hotel = () => {
           <Error msg={error}></Error>
         ) : 
         <div className="hotelContainer">
-          {open && (
-            <div className="slider">
-              <FontAwesomeIcon
-                icon={faCircleXmark}
-                className="close"
-                onClick={() => setOpen(false)}
-              />
-              <FontAwesomeIcon
-                icon={faCircleArrowLeft}
-                className="arrow"
-                onClick={() => handleMove("l")}
-              />
-              <div className="sliderWrapper">
-                <img src={hotel.photos[slideNumber]} alt="" className="sliderImg" />
-              </div>
-              <FontAwesomeIcon
-                icon={faCircleArrowRight}
-                className="arrow"
-                onClick={() => handleMove("r")}
-              />
-            </div>
-          )}
+          
           <div className="hotelWrapper">
             <h1 className="hotelTitle">{hotel.name}</h1>
             <div className="hotelAddress">
@@ -192,18 +150,11 @@ const Hotel = () => {
             <span className="hotelPriceHighlight">
               Book a stay over ${hotel.cheapestPrice} at this property and get a free airport taxi
             </span>
+
             <div className="hotelImages">
-              {hotel.photos?.map((photo, i) => (
-                <div className="hotelImgWrapper" key={i}>
-                  <img
-                    onClick={() => handleOpen(i)}
-                    src={photo}
-                    alt=""
-                    className="hotelImg"
-                  />
-                </div>
-              ))}
+                <ImageSlider slides={hotel.photos} />
             </div>
+
             <div className="hotelDetails">
               <div className="hotelDetailsTexts">
                 <h1 className="hotelTitle">{hotel.title}</h1>

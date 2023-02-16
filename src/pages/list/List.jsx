@@ -46,7 +46,7 @@ const List = () => {
     
     dispatch({type: "NEW_SEARCH", payload: { destination, date, options }})
     
-  }, [destination, min, max, options, type])
+  }, [destination, min, max, options,date, type])
 
 
   useEffect(() => {

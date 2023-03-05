@@ -11,8 +11,8 @@
   }
 
   .headerContainer {
-    width: 90%;
-    max-width: 90%;
+    width: 100%;
+    max-width: 100%;
     margin: 20px 0px 2% 0px;    
     height: 39rem;
   }
@@ -34,7 +34,7 @@
     border: none;
     padding: 10px;
     cursor: pointer;
-    width: 84%;
+    width: 60%;
   }
   
   .headerSearch {

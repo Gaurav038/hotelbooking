@@ -1,19 +1,11 @@
 .feature-box{
   display: flex;
   justify-content: center;
+  width: 100%;
 }
-
-.fp {
-    width: 100%;
-    max-width: 1180px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
   
   .fpItem{
-    gap: 10px;
+    gap: 5px;
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -26,6 +18,10 @@
     object-fit: cover;
   }
   
+  .fpItem img:hover {
+    opacity: .7;
+    transition: .6s;
+  }
   .fpName{
     color: #333;
     font-weight: bold;

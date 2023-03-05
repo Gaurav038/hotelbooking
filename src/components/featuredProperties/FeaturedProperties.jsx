@@ -31,7 +31,7 @@ const FeaturedProperties = () => {
 
   return (
     <div className="feature-box">
-      <div className="fp">
+      <div className="wrapper">
         {loading  ? <Loader /> 
             : error.length > 0 
               ? ( <Error msg={error}></Error>) 

@@ -108,4 +108,23 @@
     cursor: not-allowed;
     border-radius: 5px;
   }
+
+  @media (max-width: 600px) {
+    .hotelDetailsTexts {
+      flex: 0;
+    }
+    .hotelWrapper {
+      width: 92%;
+    }
+    .hotelDetails {
+      flex-direction: column;
+      height: 550px;
+      align-items: center;
+      gap: 5px;
+     margin-top: 2px;
+    }
+    .hotelDetailsPrice > button {
+      width: 150px;
+    }
+  }
   

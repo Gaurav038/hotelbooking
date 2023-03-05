@@ -1,6 +1,4 @@
 import "./list.css";
-import Navbar from "../../components/navbar/Navbar";
-import Header from "../../components/header/Header";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
@@ -12,7 +10,10 @@ import Loader from "../../components/Loader";
 import Error from "../../components/Error";
 import axios from "axios";
 import {BASE_URL} from "../../API.js"
-
+import Navbar from "../../components/navbar/Navbar";
+import Header from "../../components/header/Header";
+import MailList from "../../components/mailList/MailList";
+import Footer from '../../components/footer/Footer'
 
 const List = () => {
   const location = useLocation();
@@ -124,6 +125,8 @@ const List = () => {
           </div>
         </div>
       </div>
+      <MailList />
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,4 @@
 .pList{
-    max-width: 1180px;
-    background-color: #dee;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,7 +6,7 @@
   }
 
   .wrapper {
-    max-width: 1280px;
+    max-width: 1400px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-auto-rows: 280px;
@@ -31,12 +29,12 @@
     width: 100%;
     height: 70%;
     object-fit: cover;
-    transition: transform 0.9s;
+    transition: transform 0.5s;
     user-select: none;
   }
 
   .List_content .pListImg:hover {
-    transform: rotate(2deg) scale(1.2);
+    transform: rotate(1.2deg) scale(1.1);
   }
   
   .pListTitles>h1{

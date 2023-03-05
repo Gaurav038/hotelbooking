@@ -35,6 +35,10 @@ const Hotel = () => {
 
   useEffect(() => {
 
+    if (!user) {
+      window.location.href = "/login";
+    }
+
     async function fetchMyAPI() {
       try {
         setError("");
@@ -186,11 +190,10 @@ const Hotel = () => {
               </div>
             </div>
           </div>
-          <MailList />
-          <Footer />
         </div>
       }
-
+      <MailList />
+      <Footer />
     </div>
   );
 };

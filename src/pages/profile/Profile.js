@@ -20,7 +20,6 @@ function Profile() {
 
   return (
     <div>
-
       <Navbar />
       <div className='profile-box'>
         <div className="profile">

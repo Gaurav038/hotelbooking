@@ -69,7 +69,7 @@ const Featured = () => {
               
               <div className="featuredItem" onClick={()=>handleSearch('mumbai')}>
                 <img
-                  src="https://cf.bstatic.com/xdata/images/city/max500/690334.webp?k=b99df435f06a15a1568ddd5f55d239507c0156985577681ab91274f917af6dbb&o="
+                  src="https://images.unsplash.com/photo-1562979314-bee7453e911c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
                   alt=""
                   className="featuredImg"
                 />

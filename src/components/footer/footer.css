@@ -1,24 +1,142 @@
-.footer{
-    width: 100%;
-    width: 1180px;
-    font-size: 12px;
-    margin-bottom: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+
+.footercontainer{
+  position: relative;
+  background-color: #eee;
+  width: 100%;
+}
+
+.footer__container{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: -20rem;
+  padding: 2rem;
+  background-color: #f6f8fa;
+}
+
+
+.logo__name{
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
+  margin-bottom: 1rem;
+  color: #0f0e0e;
+}
+
+.logo__description{
+  padding-right: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.05rem;
+  color: #0a0a0a;
+}
+
+.hr{
+  display: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background-color: #eee;
+  width: 768px;
+}
+
+.col{
+  padding: 1rem;
+  color: #060505 ;
+}
+
+.col__title{
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.col__links{
+  color: #060505 ;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.col__links:hover{
+  color: #0e0d0d;
+}
+
+.social{
+  width: 100%;
+  color: #100f0f;
+}
+
+.social__hr{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #121111;
+}
+
+.social__tags{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.social__tags__color{
+  color: rgba(24, 21, 21, 0.637); 
+}
+
+.social__tags__color:hover{
+  color: #070707;
+}
+
+.social__copyrights{
+  color: #0f0e0e;
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.7rem;
+}
+
+@media screen and (max-width: 960px){
+  .hr{
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    background-color: #eee;
+    width: 768px;
   }
-  
-  .fLists{
+
+  .center{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .col{
+    padding: 1rem;
+    color: #060505 ;
+  }
+
+  .social__tags{
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
+    justify-content: center;
+    align-items: center;
   }
-  
-  .fList{
-    list-style: none;
-    padding: 0;
+}
+
+@media screen and (max-width: 768px){
+  .col{
+    text-align: center;
+    color: #060606 ;
+    justify-content: center;
   }
-  
-  .fListItem{
-    margin-bottom: 10px;
-    color: #003580;
-    cursor: pointer;
+
+  .footer__container{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -40rem;
+    padding: 2rem;
+    background-color: #e0e1e2;
   }
+}

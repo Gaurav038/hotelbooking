@@ -8,7 +8,7 @@ function HomeHead() {
         <div className='overlay'>
 
         </div>
-        <video style={{width:'80rem'}} src={head} muted autoPlay loop type="video/mp4" />
+        <video style={{width:'100%'}} src={head} muted autoPlay loop type="video/mp4" />
 
         <div className='homeContent container'>
             <div className='textDiv' >

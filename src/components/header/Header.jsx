@@ -49,7 +49,7 @@ import HomeHead from "./HomeHead";
 
     return (
       <div className="header">
-        <div style={{maxWidth: '1290px', height: '39rem'}}
+        <div style={{maxWidth: '1290px'}}
           className={
             type === "list" ? "headerContainer listMode" : "headerContainer"
           }
@@ -64,7 +64,7 @@ import HomeHead from "./HomeHead";
                   <FontAwesomeIcon icon={faBed} className="headerIcon" />
                   <input
                     type="text"
-                    placeholder="Where are you going?"
+                    placeholder="Destination?"
                     className="headerSearchInput"
                     onChange={(e) => setDestination(e.target.value)}
                   />

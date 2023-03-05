@@ -19,9 +19,10 @@ export default function Home() {
             <PropertyList />
             <h1 className="homeTitle">Guests Love</h1>
             <FeaturedProperties />
-            <MailList />
-            <Footer />
+            
         </div>
+        <MailList />
+        <Footer />
     </div>
   )
 }

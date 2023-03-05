@@ -1,5 +1,4 @@
 .header {
-    background-color: #003580;
     color: white;
     display: flex;
     justify-content: center;
@@ -12,9 +11,10 @@
   }
 
   .headerContainer {
-    width: 100%;
-    max-width: 1180px;
-    margin: 20px 0px 100px 0px;
+    width: 90%;
+    max-width: 90%;
+    margin: 20px 0px 2% 0px;    
+    height: 39rem;
   }
   
   .headerContainer.listMode {
@@ -34,11 +34,11 @@
     border: none;
     padding: 10px;
     cursor: pointer;
-    width: 130px;
+    width: 84%;
   }
   
   .headerSearch {
-    height: 40px;
+    height: 5%;
     background-color: white;
     border: 3px solid #8e8caa;
     display: flex;
@@ -48,7 +48,7 @@
     border-radius: 5px;
     position: absolute;
     max-width: 1158px;
-    width: 100%;
+    width: 80%;
   }
   
   .headerIcon {
@@ -58,7 +58,10 @@
   .headerSearchItem {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
+    width: 100%;
+    justify-content: center;
+    flex:1;
   }
   
   .headerSearchItem svg{
@@ -71,6 +74,7 @@
     font-size: 15px;
     font-weight: 600;
     color: #70706a;
+    width: 50%;
   }
   
   .headerSearchText {
@@ -178,4 +182,35 @@
   .homeHead .homeTitle{
     position: relative;
     font-size: 3rem;
+  }
+
+  @media screen and (max-width:1100px){
+   
+    .headerSearchItem svg{
+      font-size: 1.6rem;
+      color: #8888d3;
+    }
+    .headerSearch{
+      width: 90%;
+    }
+  }
+
+  @media screen and (max-width:900px){
+    .headerContainer {
+      height: 70%;
+    }
+    .homeHead video {
+      height: 152%;
+    }
+    
+  }
+
+  @media screen and (max-width:700px){
+    .headerSearch{
+      display: none;
+    }
+    .homeHead video {
+      height: 152%;
+    }
+    
   }

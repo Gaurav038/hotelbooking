@@ -65,22 +65,24 @@ const PropertyList = () => {
       : error.length > 0 
         ? ( <Error msg={error}></Error>) 
         :
-        <>
+        <div className="wrapper">
             {data.length && 
             images.map((img, ind) => (
               <div className="pListItem" key={ind} onClick={()=>handleSearch(data[ind].type)}>
-                <img
-                  src={img}
-                  alt=""
-                  className="pListImg"
-                />
-                <div className="pListTitles">
-                  <h1>{ data[ind].type}</h1>
-                  <h2>{data[ind].count} { data[ind].type}</h2>
+                <div className="List_content">
+                  <img
+                    src={img}
+                    alt=""
+                    className="pListImg"
+                  />
+                  <div className="pListTitles">
+                    <h1>{ data[ind].type}</h1>
+                    <h2>{data[ind].count} { data[ind].type}</h2>
+                  </div>
                 </div>
               </div>
             ))}
-        </>
+        </div>
       }
     </div>
   );

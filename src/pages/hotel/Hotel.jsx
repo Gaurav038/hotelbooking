@@ -109,7 +109,7 @@ const Hotel = () => {
           try {
             setLoading(true);
 
-            await axios.post(`${BASE_URL}/booking/createBooking`, bookingDetails);
+            await axios.post(`${BASE_URL}/booking/createBooking`, bookingDetails , {withCredentials: true, credentials: 'include'});
             
             await axios.put(`${BASE_URL}/hotels/availability/${id}`, {dates: allDates})
             setLoading(false);

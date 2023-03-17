@@ -62,7 +62,8 @@ function MyBooking() {
     try {
       await axios.post(`${BASE_URL}/booking/cancelbooking`, {
         bookingid, roomid, dateslist
-      });
+      }
+      , {withCredentials: true, credentials: 'include'});
       setLoading(false)
 
       Swal.fire(

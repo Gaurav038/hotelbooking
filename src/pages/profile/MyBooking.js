@@ -95,6 +95,7 @@ function MyBooking() {
                             <p> <b>CheckIn:</b> {moment(booking.fromdate).format('DD-MM-YYYY')} </p>
                             <p> <b>CheckOut:</b> {moment(booking.todate).format('DD-MM-YYYY')} </p>
                             <p> <b>Amount:</b> {booking.totalamount} </p>
+                            <p> <b>Booking Day and Time:</b> {moment(booking.createdAt).format("DD-MM-YYYY (hh:mm:ss)")} </p>
                             <p> <b>Status:</b>{" "}
                                 {booking.status === "booked" ? (
                                   <Tag color="green">CONFIRMED</Tag>
